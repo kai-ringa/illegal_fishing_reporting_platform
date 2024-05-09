@@ -1,7 +1,9 @@
+import ReportForm from './components/ReportForm.jsx';
+
 function App() {
   return (
     <>
-      <h1>illegal fishing reporting platform</h1>
+      <ReportForm />
     </>
   );
 }
