@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './ReportForm.css';
 
 function ReportForm() {
   const [formData, setFormData] = useState({
@@ -19,15 +20,36 @@ function ReportForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/reports/add'.formData);
+      const response = await axios.post('/api/reports/add', formData);
       console.log(response.data);
     } catch (error) {
       console.error('Error submitting report:', error);
     }
   };
 
+  const handleLocationClick = async () => {
+    try {
+      const position = await getCurrentPosition();
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        location: `${position.coords.latitude}, ${position.coords.longitude}`,
+      }));
+    } catch (error) {
+      console.error('Error getting location:', error);
+    }
+  };
+
+  const getCurrentPosition = () => {
+    new Promise((resolve, reject) => {
+      if (!navigator.geolocation) {
+        reject(new Error('Geolocation is not supported by your browser'));
+      }
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  };
+
   return (
-    <div>
+    <div className="form-container">
       <h2>report illegal fishing incident</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -40,6 +62,9 @@ function ReportForm() {
             onChange={handleChange}
             required
           />
+          <button type="button" onClick={handleLocationClick}>
+            get current location
+          </button>
         </div>
         <div>
           <label htmlFor="description">description:</label>

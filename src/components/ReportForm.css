@@ -1,0 +1,47 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  padding: 0 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width of the form */
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-transform: capitalize;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+form input,
+form textarea,
+form button {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+form button {
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
