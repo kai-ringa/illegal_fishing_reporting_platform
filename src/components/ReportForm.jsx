@@ -22,6 +22,14 @@ function ReportForm() {
     try {
       const response = await axios.post('/api/reports/add', formData);
       console.log(response.data);
+      // show success alert
+      window.alert('Report submitted successfully');
+      // reset the form
+      setFormData({
+        location: '',
+        description: '',
+        evidence: '',
+      });
     } catch (error) {
       console.error('Error submitting report:', error);
     }

@@ -1,0 +1,43 @@
+.fish-animation {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.fish {
+  width: 100px;
+  height: 100px;
+  background-color: #00aaff;
+  position: absolute;
+  border-radius: 50% 50% 0 0;
+  animation: swim 5s linear infinite;
+}
+
+.fish::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: #00aaff;
+  border-radius: 50%;
+}
+
+@keyframes swim {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateX(50px) translateY(-10px) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(100px) translateY(0) rotate(0);
+  }
+  75% {
+    transform: translateX(50px) translateY(10px) rotate(10deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+  }
+}

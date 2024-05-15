@@ -21,6 +21,11 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Backend server is running');
+});
+
 // API routes
 app.use('/api/reports', reportsRouter);
 

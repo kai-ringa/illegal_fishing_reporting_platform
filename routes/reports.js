@@ -14,6 +14,8 @@ router.route('/add').post((req, res) => {
   const description = req.body.description;
   const evidence = req.body.evidence;
 
+  console.log('Received POST request to /api/reports/add');
+
   const newReport = new Report({
     location,
     description,
